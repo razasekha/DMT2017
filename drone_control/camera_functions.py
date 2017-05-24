@@ -1,6 +1,6 @@
 import cv2
 import time
-
+import math
 
 def get_loc(vc, first_frame=None, cam_num=0, imshow = None):
     """
@@ -23,6 +23,11 @@ def get_angle(x, y, w=640, h=480):
     From the x,y location read from the camera, get the horizontal angle
     alpha and vertical angle beta.
     """
+    x2=x-w/2
+    y2=y-h/2
+    alpha = atan(y2/x2)
+    beta = atan (x2/y2)
+    
     ###insert function here
     return alpha, beta
 
